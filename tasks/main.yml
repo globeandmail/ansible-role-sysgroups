@@ -1,0 +1,8 @@
+---
+- name: Manage Groups...
+  group:
+    gid: '{{item.gid|default(omit)}}'
+    name: '{{item.name}}'
+    state: '{{item.state|default("present")}}'
+    system: '{{item.system|default("no")}}'
+  loop: "{{ sysgroups | default([]) }}"
